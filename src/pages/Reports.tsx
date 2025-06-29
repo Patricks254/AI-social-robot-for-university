@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -6,140 +5,171 @@ import { FileText, Download, Calendar, Users, AlertCircle } from "lucide-react";
 import Navigation from "@/components/Navigation";
 
 const Reports = () => {
+  // Data for documents and meeting minutes
   const documents = [
     {
       title: "Project Proposal",
       description: "Initial project proposal and problem statement",
       date: "June 2025",
       type: "proposal",
-      status: "final"
-    },
-    {
-      title: "Literature Review",
-      description: "Research on existing social robots and campus assistance systems",
-      date: "June 2025",
-      type: "research",
-      status: "final"
+      status: "final",
+      filePath: "src/documents/project-proposal.pdf"
     },
     {
       title: "System Requirements Document",
       description: "Functional and non-functional requirements specification",
       date: "June 2025",
       type: "requirements",
-      status: "final"
-    },
-    {
-      title: "Concept of Operations (ConOps)",
-      description: "Detailed operational concept and user interaction scenarios",
-      date: "July 2025",
-      type: "design",
-      status: "final"
+      status: "final",
+      filePath: "src/documents/system-requirements.pdf"
     },
     {
       title: "Bill of Materials (BoM)",
       description: "Complete list of hardware components and costs",
       date: "July 2025",
       type: "technical",
-      status: "draft"
-    },
-    {
-      title: "Circuit Design Specifications",
-      description: "Detailed circuit diagrams and electrical specifications",
-      date: "July 2025",
-      type: "technical",
-      status: "in-progress"
+      status: "draft",
+      filePath: "src/documents/bill-of-materials.pdf"
     },
     {
       title: "Software Architecture Document",
-      description: "Python and Arduino code structure and integration plan",
+      description: "System design and software architecture overview",
       date: "July 2025",
       type: "technical",
-      status: "in-progress"
+      status: "in-progress",
+      filePath: "src/documents/software-architecture.pdf"
+    },
+    {
+      title: "Literature Review",
+      description: "Research on existing social robots and campus assistance systems",
+      date: "June 2025",
+      type: "research",
+      status: "final",
+      filePath: "src/documents/literature-review.pdf"
+    },
+    {
+      title: "Concept of Operations (ConOps)",
+      description: "Detailed operational concept and user interaction scenarios",
+      date: "July 2025",
+      type: "design",
+      status: "final",
+      filePath: "src/documents/concept-of-operations.pdf"
+    },
+    {
+      title: "Circuit Design Specifications",
+      description: "Detailed circuit diagrams and electrical specifications for the AI-Social Robot",
+      date: "July 2025",
+      type: "technical",
+      status: "in-progress",
+      filePath: "src/documents/circuit-design-specs.pdf"
     },
     {
       title: "Progress Report - Midterm",
-      description: "Current progress, challenges, and next steps",
+      description: "Mid-semester progress evaluation and milestone achievements",
       date: "July 2025",
-      type: "progress",
-      status: "upcoming"
+      type: "report",
+      status: "final",
+      filePath: "src/documents/progress-report-midterm.pdf"
     }
   ];
 
   const meetingMinutes = [
     {
-      date: "June 5, 2025",
       topic: "Project Kickoff & Role Assignment",
+      date: "June 5, 2025",
       attendees: ["Noor Almohammadi", "Maryam Al-Obaidan", "Amna Al-Zeyara"],
-      status: "final"
+      status: "final",
+      filePath: "src/meeting-minutes/project-kickoff.pdf"
     },
     {
-      date: "June 12, 2025",
       topic: "Literature Review Discussion",
+      date: "June 12, 2025",
       attendees: ["All team members"],
-      status: "final"
+      status: "final",
+      filePath: "src/meeting-minutes/literature-review-discussion.pdf"
     },
     {
-      date: "June 19, 2025",
       topic: "Requirements Definition Session",
+      date: "June 19, 2025",
       attendees: ["All team members"],
-      status: "final"
+      status: "final",
+      filePath: "src/meeting-minutes/requirements-definition.pdf"
     },
     {
-      date: "June 26, 2025",
       topic: "Technical Architecture Planning",
+      date: "June 26, 2025",
       attendees: ["All team members"],
-      status: "final"
+      status: "final",
+      filePath: "src/meeting-minutes/technical-architecture.pdf"
     },
     {
-      date: "July 3, 2025",
       topic: "Component Selection & Ordering",
+      date: "July 3, 2025",
       attendees: ["All team members"],
-      status: "draft"
+      status: "draft",
+      filePath: "src/meeting-minutes/component-selection.pdf"
     },
     {
-      date: "July 10, 2025",
       topic: "Software Development Progress",
+      date: "July 10, 2025",
       attendees: ["All team members"],
-      status: "upcoming"
+      status: "upcoming",
+      filePath: ""
     }
   ];
 
+  // Helper functions for styling
   const getTypeColor = (type: string) => {
-    switch (type) {
-      case "proposal":
-        return "bg-blue-500/20 text-blue-300 border-blue-500/30";
-      case "research":
-        return "bg-purple-500/20 text-purple-300 border-purple-500/30";
-      case "requirements":
-        return "bg-green-500/20 text-green-300 border-green-500/30";
-      case "design":
-        return "bg-orange-500/20 text-orange-300 border-orange-500/30";
-      case "technical":
-        return "bg-red-500/20 text-red-300 border-red-500/30";
-      case "progress":
-        return "bg-yellow-500/20 text-yellow-300 border-yellow-500/30";
-      default:
-        return "bg-slate-500/20 text-slate-300 border-slate-500/30";
-    }
+    const colors: Record<string, string> = {
+      proposal: 'bg-blue-500/20 text-blue-300 border-blue-500/30',
+      requirements: 'bg-green-500/20 text-green-300 border-green-500/30',
+      technical: 'bg-red-500/20 text-red-300 border-red-500/30',
+      research: 'bg-purple-500/20 text-purple-300 border-purple-500/30',
+      design: 'bg-orange-500/20 text-orange-300 border-orange-500/30',
+      report: 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30'
+    };
+    return colors[type] || 'bg-slate-500/20 text-slate-300 border-slate-500/30';
   };
 
   const getStatusColor = (status: string) => {
-    switch (status) {
-      case "final":
-        return "bg-green-500/20 text-green-300 border-green-500/30";
-      case "draft":
-        return "bg-yellow-500/20 text-yellow-300 border-yellow-500/30";
-      case "in-progress":
-        return "bg-blue-500/20 text-blue-300 border-blue-500/30";
-      case "upcoming":
-        return "bg-slate-500/20 text-slate-300 border-slate-500/30";
-      default:
-        return "bg-slate-500/20 text-slate-300 border-slate-500/30";
+    const colors: Record<string, string> = {
+      final: 'bg-green-500/20 text-green-300 border-green-500/30',
+      draft: 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30',
+      'in-progress': 'bg-blue-500/20 text-blue-300 border-blue-500/30',
+      upcoming: 'bg-slate-500/20 text-slate-300 border-slate-500/30'
+    };
+    return colors[status] || 'bg-slate-500/20 text-slate-300 border-slate-500/30';
+  };
+
+  // Download function
+  const handleDownload = (filePath: string, fileName: string) => {
+    if (!filePath) {
+      alert('File not available yet');
+      return;
     }
+
+    const link = document.createElement('a');
+    link.href = filePath;
+    link.download = fileName || filePath.split('/').pop();
+    link.target = '_blank';
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  // View function for meeting minutes
+  const handleView = (filePath: string) => {
+    if (!filePath) {
+      alert('File not available yet');
+      return;
+    }
+
+    window.open(filePath, '_blank');
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 p-8">
       <Navigation />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -153,7 +183,7 @@ const Reports = () => {
           </p>
         </div>
 
-        {/* Note about document access */}
+        {/* Document Access Notice */}
         <Card className="bg-orange-900/20 border-orange-500/30 mb-8">
           <CardHeader>
             <CardTitle className="text-orange-300 text-lg flex items-center">
@@ -204,8 +234,9 @@ const Reports = () => {
                     <Button 
                       size="sm" 
                       variant="outline" 
-                      disabled={doc.status === 'upcoming'}
+                      disabled={doc.status === 'upcoming' || !doc.filePath}
                       className="text-xs"
+                      onClick={() => handleDownload(doc.filePath, `${doc.title.replace(/\s+/g, '-').toLowerCase()}.pdf`)}
                     >
                       <Download className="h-3 w-3 mr-1" />
                       {doc.status === 'upcoming' ? 'Pending' : 'Download'}
@@ -249,8 +280,9 @@ const Reports = () => {
                       <Button 
                         size="sm" 
                         variant="outline" 
-                        disabled={meeting.status === 'upcoming'}
+                        disabled={meeting.status === 'upcoming' || !meeting.filePath}
                         className="text-xs"
+                        onClick={() => handleView(meeting.filePath)}
                       >
                         <Download className="h-3 w-3 mr-1" />
                         {meeting.status === 'upcoming' ? 'Pending' : 'View'}
