@@ -29,7 +29,7 @@ const Reports = () => {
       date: "July 2025",
       type: "technical",
       status: "draft",
-      filePath: "src/documents/bill-of-materials.pdf"
+      filePath: "src/documents/project-proposal.pdf"
     },
     {
       title: "Software Architecture Document",
@@ -37,7 +37,7 @@ const Reports = () => {
       date: "July 2025",
       type: "technical",
       status: "in-progress",
-      filePath: "src/documents/software-architecture.pdf"
+      filePath: "src/documents/ECEN403-FSRAssignment.pdf"
     },
     {
       title: "Literature Review",
@@ -45,7 +45,7 @@ const Reports = () => {
       date: "June 2025",
       type: "research",
       status: "final",
-      filePath: "src/documents/literature-review.pdf"
+      filePath: "src/documents/ECEN403-FSRAssignment 2.pdf"
     },
     {
       title: "Concept of Operations (ConOps)",
@@ -53,7 +53,7 @@ const Reports = () => {
       date: "July 2025",
       type: "design",
       status: "final",
-      filePath: "src/documents/concept-of-operations.pdf"
+      filePath: "src/documents/Ecen403-Milestones_and_Validation_Plan_Draft2.pdf"
     },
     {
       title: "Circuit Design Specifications",
@@ -79,21 +79,21 @@ const Reports = () => {
       date: "June 5, 2025",
       attendees: ["Noor Almohammadi", "Maryam Al-Obaidan", "Amna Al-Zeyara"],
       status: "final",
-      filePath: "src/meeting-minutes/project-kickoff.pdf"
+      filePath: "src/meeting-minutes/ECEN403-FSRAssignment 2.pdf"
     },
     {
       topic: "Literature Review Discussion",
       date: "June 12, 2025",
       attendees: ["All team members"],
       status: "final",
-      filePath: "src/meeting-minutes/literature-review-discussion.pdf"
+      filePath: "src/meeting-minutes/ECEN403-FSRAssignment.pdf"
     },
     {
       topic: "Requirements Definition Session",
       date: "June 19, 2025",
       attendees: ["All team members"],
       status: "final",
-      filePath: "src/meeting-minutes/requirements-definition.pdf"
+      filePath: "src/meeting-minutes/requirements-definition.pdf" 
     },
     {
       topic: "Technical Architecture Planning",
@@ -176,7 +176,7 @@ const Reports = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Reports & Documentation
+            Reports And Documentation
           </h1>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto">
             Access project documents, reports, and meeting minutes
