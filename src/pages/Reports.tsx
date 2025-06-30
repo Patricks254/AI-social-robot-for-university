@@ -5,71 +5,46 @@ import { FileText, Download, Calendar, Users, AlertCircle } from "lucide-react";
 import Navigation from "@/components/Navigation";
 
 const Reports = () => {
-  // Data for documents and meeting minutes
   const documents = [
     {
-      title: "Project Proposal",
-      description: "Initial project proposal and problem statement",
+      title: "FSR Assignment",
+      description: "Functional System Requirements of the AI-Social Robot",
       date: "June 2025",
-      type: "proposal",
+      type: "technical",
       status: "final",
-      filePath: "src/documents/project-proposal.pdf"
+      filePath: "/documents/ECEN403-FSRAssignment.pdf"
     },
     {
-      title: "System Requirements Document",
-      description: "Functional and non-functional requirements specification",
+      title: "FSR Assignment 2",
+      description: "System extension and modular upgrade definitions",
       date: "June 2025",
-      type: "requirements",
+      type: "technical",
       status: "final",
-      filePath: "src/documents/system-requirements.pdf"
+      filePath: "/documents/ECEN403-FSRAssignment 2.pdf"
     },
     {
-      title: "Bill of Materials (BoM)",
-      description: "Complete list of hardware components and costs",
-      date: "July 2025",
-      type: "technical",
-      status: "draft",
-      filePath: "src/documents/project-proposal.pdf"
-    },
-    {
-      title: "Software Architecture Document",
-      description: "System design and software architecture overview",
-      date: "July 2025",
-      type: "technical",
-      status: "in-progress",
-      filePath: "src/documents/ECEN403-FSRAssignment.pdf"
-    },
-    {
-      title: "Literature Review",
-      description: "Research on existing social robots and campus assistance systems",
+      title: "Benchmarking Report",
+      description: "Comparison with market alternatives and evaluation metrics",
       date: "June 2025",
-      type: "research",
-      status: "final",
-      filePath: "src/documents/ECEN403-FSRAssignment 2.pdf"
-    },
-    {
-      title: "Concept of Operations (ConOps)",
-      description: "Detailed operational concept and user interaction scenarios",
-      date: "July 2025",
-      type: "design",
-      status: "final",
-      filePath: "src/documents/Ecen403-Milestones_and_Validation_Plan_Draft2.pdf"
-    },
-    {
-      title: "Circuit Design Specifications",
-      description: "Detailed circuit diagrams and electrical specifications for the AI-Social Robot",
-      date: "July 2025",
       type: "technical",
-      status: "in-progress",
-      filePath: "src/documents/circuit-design-specs.pdf"
+      status: "final",
+      filePath: "/documents/Ecen403-Benchmarkingassignment2.pdf"
     },
     {
-      title: "Progress Report - Midterm",
-      description: "Mid-semester progress evaluation and milestone achievements",
-      date: "July 2025",
-      type: "report",
+      title: "Milestones & Validation Plan",
+      description: "Execution plan and milestone validation for Fall 2025",
+      date: "June 2025",
+      type: "technical",
       status: "final",
-      filePath: "src/documents/progress-report-midterm.pdf"
+      filePath: "/documents/Ecen403-Milestones_and_Validation_Plan_Draft2.pdf"
+    },
+    {
+      title: "Final Presentation Slides",
+      description: "Campus bot presentation slides summarizing architecture, goals, and impact",
+      date: "June 2025",
+      type: "presentation",
+      status: "final",
+      filePath: "/documents/363FF870-465C-4D3E-8FC9-66BF082E15B9.pdf"
     }
   ];
 
@@ -79,46 +54,38 @@ const Reports = () => {
       date: "June 5, 2025",
       attendees: ["Noor Almohammadi", "Maryam Al-Obaidan", "Amna Al-Zeyara"],
       status: "final",
-      filePath: "src/meeting-minutes/ECEN403-FSRAssignment 2.pdf"
+      filePath: "/documents/ECEN403-FSRAssignment 2.pdf"
     },
     {
       topic: "Literature Review Discussion",
       date: "June 12, 2025",
       attendees: ["All team members"],
       status: "final",
-      filePath: "src/meeting-minutes/ECEN403-FSRAssignment.pdf"
+      filePath: "/documents/ECEN403-FSRAssignment.pdf"
     },
     {
       topic: "Requirements Definition Session",
       date: "June 19, 2025",
       attendees: ["All team members"],
       status: "final",
-      filePath: "src/meeting-minutes/requirements-definition.pdf" 
+      filePath: "/documents/ECEN403-FSRAssignment.pdf"
     },
     {
-      topic: "Technical Architecture Planning",
-      date: "June 26, 2025",
+      topic: "Benchmarking Analysis",
+      date: "June 21, 2025",
       attendees: ["All team members"],
       status: "final",
-      filePath: "src/meeting-minutes/technical-architecture.pdf"
+      filePath: "/documents/Ecen403-Benchmarkingassignment2.pdf"
     },
     {
-      topic: "Component Selection & Ordering",
-      date: "July 3, 2025",
+      topic: "Validation Milestone Review",
+      date: "June 22, 2025",
       attendees: ["All team members"],
-      status: "draft",
-      filePath: "src/meeting-minutes/component-selection.pdf"
-    },
-    {
-      topic: "Software Development Progress",
-      date: "July 10, 2025",
-      attendees: ["All team members"],
-      status: "upcoming",
-      filePath: ""
+      status: "final",
+      filePath: "/documents/Ecen403-Milestones_and_Validation_Plan_Draft2.pdf"
     }
   ];
 
-  // Helper functions for styling
   const getTypeColor = (type: string) => {
     const colors: Record<string, string> = {
       proposal: 'bg-blue-500/20 text-blue-300 border-blue-500/30',
@@ -126,7 +93,8 @@ const Reports = () => {
       technical: 'bg-red-500/20 text-red-300 border-red-500/30',
       research: 'bg-purple-500/20 text-purple-300 border-purple-500/30',
       design: 'bg-orange-500/20 text-orange-300 border-orange-500/30',
-      report: 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30'
+      report: 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30',
+      presentation: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30'
     };
     return colors[type] || 'bg-slate-500/20 text-slate-300 border-slate-500/30';
   };
@@ -141,49 +109,42 @@ const Reports = () => {
     return colors[status] || 'bg-slate-500/20 text-slate-300 border-slate-500/30';
   };
 
-  // Download function
   const handleDownload = (filePath: string, fileName: string) => {
     if (!filePath) {
       alert('File not available yet');
       return;
     }
-
     const link = document.createElement('a');
     link.href = filePath;
     link.download = fileName || filePath.split('/').pop();
     link.target = '_blank';
-
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
-  // View function for meeting minutes
   const handleView = (filePath: string) => {
     if (!filePath) {
       alert('File not available yet');
       return;
     }
-
     window.open(filePath, '_blank');
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 p-8">
       <Navigation />
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Reports And Documentation
           </h1>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            Access project documents, reports, and meeting minutes
+            Access project deliverables and downloadable resources
           </p>
         </div>
 
-        {/* Document Access Notice */}
         <Card className="bg-orange-900/20 border-orange-500/30 mb-8">
           <CardHeader>
             <CardTitle className="text-orange-300 text-lg flex items-center">
@@ -193,14 +154,12 @@ const Reports = () => {
           </CardHeader>
           <CardContent>
             <p className="text-orange-200">
-              All project documents are stored in our team's shared repository. 
-              For access to specific documents, please contact our team members directly. 
-              Final versions will be made available as they are completed.
+              Final documents listed below are for reference and academic use only. Please contact the development team for full repositories or collaborative access.
             </p>
           </CardContent>
         </Card>
 
-        {/* Project Documents */}
+        {/* Documents */}
         <Card className="bg-slate-800/50 border-slate-700 mb-8">
           <CardHeader>
             <CardTitle className="text-white text-2xl flex items-center">
@@ -208,19 +167,17 @@ const Reports = () => {
               Project Documents
             </CardTitle>
             <CardDescription className="text-slate-300">
-              Technical reports, specifications, and project deliverables
+              Reports, deliverables, and presentations for the AI-Social Robot
             </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {documents.map((doc, index) => (
                 <div key={index} className="bg-slate-700/30 border border-slate-600 rounded-lg p-4">
-                  <div className="flex justify-between items-start mb-3">
-                    <div className="flex-1">
-                      <h3 className="text-white font-semibold mb-1">{doc.title}</h3>
-                      <p className="text-slate-300 text-sm mb-2">{doc.description}</p>
-                      <p className="text-slate-400 text-xs">{doc.date}</p>
-                    </div>
+                  <div className="mb-3">
+                    <h3 className="text-white font-semibold mb-1">{doc.title}</h3>
+                    <p className="text-slate-300 text-sm mb-1">{doc.description}</p>
+                    <p className="text-slate-400 text-xs">{doc.date}</p>
                   </div>
                   <div className="flex justify-between items-center">
                     <div className="flex gap-2">
@@ -231,15 +188,16 @@ const Reports = () => {
                         {doc.status}
                       </Badge>
                     </div>
-                    <Button 
-                      size="sm" 
-                      variant="outline" 
-                      disabled={doc.status === 'upcoming' || !doc.filePath}
+                    <Button
+                      size="sm"
+                      variant="outline"
                       className="text-xs"
-                      onClick={() => handleDownload(doc.filePath, `${doc.title.replace(/\s+/g, '-').toLowerCase()}.pdf`)}
+                      onClick={() =>
+                        handleDownload(doc.filePath, `${doc.title.replace(/\s+/g, "-").toLowerCase()}.pdf`)
+                      }
                     >
                       <Download className="h-3 w-3 mr-1" />
-                      {doc.status === 'upcoming' ? 'Pending' : 'Download'}
+                      Download
                     </Button>
                   </div>
                 </div>
@@ -256,7 +214,7 @@ const Reports = () => {
               Meeting Minutes
             </CardTitle>
             <CardDescription className="text-slate-300">
-              Team meeting records and discussion summaries
+              Team meeting summaries and discussion archives
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -277,15 +235,14 @@ const Reports = () => {
                       <Badge variant="outline" className={`text-xs ${getStatusColor(meeting.status)}`}>
                         {meeting.status}
                       </Badge>
-                      <Button 
-                        size="sm" 
-                        variant="outline" 
-                        disabled={meeting.status === 'upcoming' || !meeting.filePath}
+                      <Button
+                        size="sm"
+                        variant="outline"
                         className="text-xs"
                         onClick={() => handleView(meeting.filePath)}
                       >
                         <Download className="h-3 w-3 mr-1" />
-                        {meeting.status === 'upcoming' ? 'Pending' : 'View'}
+                        View
                       </Button>
                     </div>
                   </div>
